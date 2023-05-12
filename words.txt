@@ -1,0 +1,9 @@
+apple - alma,
+ball - top,
+car - mashina,
+hello - salem,
+week - hapte,
+vehicle - velosiped,
+tournament - jaris,
+strawberry - qulpinay,
+tree - terek

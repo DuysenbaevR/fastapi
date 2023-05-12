@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First App</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div id="message"></div>
+     <p>
+        Введите слово: <br /> 
+        <input name="userword" id="userword" />
+    </p>
+     
+    <button onclick="send()">Отправить</button>
+<script>
+    async function send(){
+ 
+        // получаем введеное в поле слово
+        const word = document.getElementById("userword").value;
+ 
+        // отправляем запрос
+        const response = await fetch("/hello", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({ 
+                    word: word
+                })
+            });
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById("message").textContent = data.message;
+            }
+            else
+                console.log(response);
+    }
+</script>
+</body>
+</html>
